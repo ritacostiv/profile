@@ -1,122 +1,117 @@
-#Rita {
-  width: 250px;
-  border-radius: 50%;
+/* Modern color variables */
+:root {
+  --bg-primary: #f5f7fa;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --text-primary: #2d3748;
+  --border-color: #e2e8f0;
 }
 
-h1 {
-  font-family: 'Times New Roman', Times, serif
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
 }
 
 #container {
-box-shadow: rgb(0, 0, 0);
-background-color: aliceblue;
-padding: 30px;
-display: flex;
-    flex-direction: column;  /* stacks children vertically */
-    align-items: center;
+  background-color: transparent;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#Rita {
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 4px solid white;
+  transition: transform 0.3s ease;
+}
+
+#Rita:hover {
+  transform: scale(1.02);
+}
+
+h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 30px 0;
 }
 
 .card {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   width: 500px;
-  border: 1px solid lightgrey;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color),
+              0 10px 15px var(--shadow-color);
+  margin: 20px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px var(--shadow-color),
+              0 12px 18px var(--shadow-color);
 }
 
 #LinkedIn-Button {
-  background: rgba(10, 102, 194, 0.1);
-  padding: 12px 24px;
+  background: #0a66c2;
+  padding: 12px 28px;
   border-radius: 25px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-#LinkedIn-Button::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(
-      45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000
-  );
-  z-index: -1;
-  animation: sparkleRainbow 20s linear infinite;
-  background-size: 400%;
-  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.2);
 }
 
 #LinkedIn-Button a {
-  color: #0a66c2;
+  color: white;
   text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.5px;
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes sparkleRainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 #LinkedIn-Button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(10, 102, 194, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.3);
+  background: #0077b5;
 }
 
-
-
-#linkedin-link {
-  text-decoration: none;
-  color: aliceblue;
-}
-
+/* Responsive design */
 @media (max-width: 960px) {
-  /* For a screen < 960px, this CSS will be read */
-  .container {
-    width: 700px;
+  .card {
+    width: 80%;
+    max-width: 700px;
   }
 }
 
 @media (max-width: 720px) {
-  /* For a screen < 720px, this CSS will be read */
-  .container {
-    width: 500px;
+  .card {
+    width: 90%;
+    max-width: 500px;
+  }
+  #Rita {
+    width: 200px;
   }
 }
 
 @media (max-width: 540px) {
-  /* For a screen < 540px, this CSS will be read */
-  .container {
-    width: 300px;
+  .card {
+    width: 95%;
+    max-width: 300px;
+    padding: 20px;
   }
-}
-
-
-@media (min-width: 992px) {
-  p {
-    margin: 20px 0;
-  }
-
-  ul {
-    margin: 15px 0;
+  #Rita {
+    width: 150px;
   }
 }
